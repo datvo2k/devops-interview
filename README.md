@@ -47,3 +47,45 @@ There are basic 4 layers in TCP/IP:
 
 ###### What is Docker Life Cycle?
 The lifecycle of a Docker container involves creation, running, stopping, and removal. Containers are created from Docker images, run as isolated instances, can be stopped or paused, and can be removed when no longer needed.
+
+###### What are some key features of a container?
+Containers are isolated from each other and the underlying host operating system. This allows for consistent runtime environments and makes it easy to package and deploy applications. Containers are also lightweight and fast, making them ideal for microservices and other distributed applications.
+
+###### What are different types of Docker Networking drivers?
+Bridge: The default network driver. If you don’t specify a driver, this is the type of network you are creating. Bridge networks are usually used when your applications run in standalone containers that need to communicate.
+
+Host: For standalone containers, remove network isolation between the container and the Docker host, and use the host’s networking directly. host is only available for swarm services on Docker 17.06 and higher.
+
+Overlay: Overlay networks connect multiple Docker daemons together and enable swarm services to communicate with each other. You can also use overlay networks to facilitate communication between a swarm service and a standalone container, or between two standalone containers on different Docker daemons. This strategy removes the need to do OS-level routing between these containers. See overlay networks.
+
+MacVLAN: Macvlan networks allow you to assign a MAC address to a container, making it appear as a physical device on your network. The Docker daemon routes traffic to containers by their MAC addresses. Using the macvlan driver is sometimes the best choice when dealing with legacy applications that expect to be directly connected to the physical network, rather than routed through the Docker host’s network stack.
+
+None: For this container, disable all networking. Usually used in conjunction with a custom network driver. none is not available for swarm services.
+
+###### How is overlay network different from bridge network?
+Bridge networks connect two networks while creating a single aggregate network from multiple communication networks or network segments, hence the name bridge. Overlay networks are usually used to create a virtual network between two separate hosts. Virtual, since the network is build over an existing network. Bridge networks can cater to single host, while overlay networks are for multiple hosts.
+
+###### Can you explain different volume mount types available in Docker?
+There are three mount types available in Docker · Volumes are stored in a part of the host filesystem which is managed by Docker (/var/lib/docker/volumes/ on Linux). Non-Docker processes should not modify this part of the filesystem. Volumes are the best way to persist data in Docker. · Bind mounts may be stored anywhere on the host system. They may even be important system files or directories. Non-Docker processes on the Docker host or a Docker container can modify them at any time. · tmpfs mounts are stored in the host system’s memory only, and are never written to the host system’s filesystem.
+
+###### Why do my services take 10 seconds to recreate or stop?
+Compose stop attempts to stop a container by sending a SIGTERM. It then waits for a default timeout of 10 seconds. After the timeout, a SIGKILL is sent to the container to forcefully kill it. If you are waiting for this timeout, it means that your containers aren’t shutting down when they receive the SIGTERM signal.
+
+###### Explain Docker Architecture?
+- Docker Client: This performs Docker build pull and run operations to establish communication with the Docker Host. The Docker command uses Docker API to call the queries to be run.
+- Docker Host: This component contains Docker Daemon, Containers and its images. The images will be the kind of metadata for the applications which are containerized in the containers. The Docker Daemon establishes a connection with Registry.
+- Registry: This component will be storing the Docker images. The public registries are Docker Hub and Docker Cloud which can be s used by anyone.
+
+###### What is the lifecycle of a Docker Container?
+Docker containers have the following lifecycle:
+
+1. Create a container
+2. Run the container
+3. Pause the container(optional)
+4. Un-pause the container(optional)
+5. Start the container
+6. Stop the container
+7. Restart the container
+8. Kill the container
+9. Destroy the container
+
