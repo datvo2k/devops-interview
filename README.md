@@ -89,3 +89,45 @@ Docker containers have the following lifecycle:
 8. Kill the container
 9. Destroy the container
 
+#### Security questions?
+###### What is the difference between authentication and authorization?
+Authentication means confirming your own identity, while authorization means granting access to the system. In simple terms, authentication is the process of verifying who you are, while authorization is the process of verifying what you have access to.
+
+###### OWASP TOP 10
+//TODO: nhớ điền vào
+
+#### LINUX questions?
+###### Describe the general file system hierarchy of a Linux system.
+- / - root folder
+- /etc - configuration files provided by the package manager
+- /bin - binaries files
+- /sbin - system binaries files (important binaries for the OS)
+- /boot - Static files for boot processes ( boot loader)
+- /dev - Device files
+- /lib - Essential shared libraries and kernel modules
+- /usr - Secundary hierarchy
+- /mnt - Mounting point for temporary filesystem
+- /media - Mounting point for removable media
+- /opt - Add-on application software packages
+- /srv - Data service provided by this system
+- /tmp - Temporary files
+- /var - Variable data
+- /root - Root user folder
+- /home - Home users folders
+
+###### Describe how 'ps' works.
+On Linux, the ps command works by reading files in the proc filesystem The directory `/proc/*PID*` contains various files that provide information about process `PID`. The content of these files is generated on the fly by the kernel when a process reads them.
+
+###### Which Linux file types do you know?
+Linux file types and ls command identifiers:
+
+- `-` : regular file.
+- d : directory.
+- c : character device file.
+- b : block device file.
+- s : local socket file.
+- p : named pipe.
+- l : symbolic link.
+
+###### Where is password file located in Linux and how can you improve the security of password file?
+To improve the security of the password file, instead of using a compatible format we can use shadow password format. So, in shadow password format, the password will be stored as single “x” character which is not the same file (/etc/passwd). This information is stored in another file instead with a file name /etc/shadow. So, to enhance the security, the file is made word readable and also, this file is readable only by the root user. Thus security risks are overcome to a great extent by using the shadow password format.
