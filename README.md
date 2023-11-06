@@ -1,6 +1,5 @@
 
 #### Protocol questions?
-
 ###### What is HTTP?
 HTTP stands for Hypertext Transfer Protocol. It is a set of rule which is used for transferring the files like audio, video, graphic image, text and other multimedia files on the WWW. HTTP is a protocol that is used to transfer the hypertext from the client end to the server end but not security. 
 
@@ -131,3 +130,30 @@ Linux file types and ls command identifiers:
 
 ###### Where is password file located in Linux and how can you improve the security of password file?
 To improve the security of the password file, instead of using a compatible format we can use shadow password format. So, in shadow password format, the password will be stored as single “x” character which is not the same file (/etc/passwd). This information is stored in another file instead with a file name /etc/shadow. So, to enhance the security, the file is made word readable and also, this file is readable only by the root user. Thus security risks are overcome to a great extent by using the shadow password format.
+
+#### Terraform questions?
+###### What is Terraform?
+Terraform: "HashiCorp Terraform is an infrastructure as code tool that lets you define both cloud and on-prem resources in human-readable configuration files that you can version, reuse, and share. You can then use a consistent workflow to provision and manage all of your infrastructure throughout its lifecycle. Terraform can manage low-level components like compute, storage, and networking resources, as well as high-level components like DNS entries and SaaS features."
+
+###### What's a typical Terraform workflow?
+1. Write Terraform definitions: .tf files written in HCL that described the desired infrastructure state (and run terraform init at the very beginning)
+2. Review: With command such as terraform plan you can get a glance at what Terraform will perform with the written definitions
+3. Apply definitions: With the command terraform apply Terraform will apply the given definitions, by adding, modifying or removing the resources
+
+###### What type of input variables are supported in Terraform?
+```
+string
+number
+bool
+list(<TYPE>)
+set(<TYPE>)
+map(<TYPE>)
+object({<ATTR_NAME> = <TYPE>, ... })
+tuple([<TYPE>, ...])
+```
+###### What is the effect of setting variable as "sensitive"?
+It doesn't show its value when you run `terraform apply` or `terraform plan` but eventually it's still recorded in the state file.
+
+###### When you update a resource, how it works?
+By default the current resource is deleted, a new one is created and any references pointing the old resource are updated to point the new resource
+
