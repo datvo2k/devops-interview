@@ -54,4 +54,26 @@ Make sure working-branch reviewed before merge.
  - Both: ENTRYPOINT["echo"] \ CMD["This is EntryPoint"]
 
  - Both run during docker container runtime. Either one of theme are suggested to be used as best practice. Using both of theme in the same Dockerfile is also possible.
- 
+
+#### Kubernetes
+###### Explain replication controller in kubernetes?
+A replication controller is responsible for running the specified number of pod copies across the cluster. Create X number pods present.
+
+###### What is pv and pvc in kubernetes? What role do they play?
+- PV -> Persistent Volume
+- PVC -> Persistent Volume Claim
+- POD -> PVC -> PV -> Volume(NFS, EBS)
+
+###### A pod is trying to access a volume but it gives access error. We would like this pod to have access to this volume. What can we do to achieve the same?
+- The issue cloud be appear because of AccessMode of volume
+- Not all PV allow multiple pod access
+- in K8S: ReadWriteOnce, ReadOnlyMany, ReadWriteMany, ReadWriteOncePod
+- Example NFS allows ReadWriteMany
+- EBS allows only ReadWriteOnce
+
+###### What is side car container?
+A sidecar container runs parallel to the main application container. The reason to use a sidecar container can be for different reasons. For example, in Istio the sidecar container is used as a proxy for managing incoming traffic for the main container, it can also be used for logging, monitoring purposes, and more.   
+Remove certain complexities when we build application.   
+
+###### How does the K8S scheduler quickly assign worker nodes for the pod? Explain the internal working of K8S's scheduler.
+
