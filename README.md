@@ -156,4 +156,3 @@ It doesn't show its value when you run `terraform apply` or `terraform plan` but
 
 ###### When you update a resource, how it works?
 By default the current resource is deleted, a new one is created and any references pointing the old resource are updated to point the new resource
-
