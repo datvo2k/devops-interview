@@ -156,3 +156,22 @@ It doesn't show its value when you run `terraform apply` or `terraform plan` but
 
 ###### When you update a resource, how it works?
 By default the current resource is deleted, a new one is created and any references pointing the old resource are updated to point the new resource
+
+#### GIT questions?
+###### What is the difference between `git pull` and `git fetch`?
+Shortly, git pull = git fetch + git merge   
+
+When you run git pull, it gets all the changes from the remote or central repository and attaches it to your corresponding branch in your local repository.   
+
+git fetch gets all the changes from the remote repository, stores the changes in a separate branch in your local repository   
+
+###### How to check if a file is tracked and if not, then track it?
+There are different ways to check whether a file is tracked or not:
+
+- git ls-files <file> -> exit code of 0 means it's tracked
+- git blame <file> ...
+
+###### You have files in your repository you don't want Git to ever track them. What should you be doing to avoid ever tracking them?
+Add them to the file `.gitignore`. This will make sure these files are never added to staging area.
+
+#### AWS questions?

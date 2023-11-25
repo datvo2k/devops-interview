@@ -77,3 +77,54 @@ Remove certain complexities when we build application.
 
 ###### How does the K8S scheduler quickly assign worker nodes for the pod? Explain the internal working of K8S's scheduler.
 
+#### AWS
+###### What is instance fleet in AWS?
+- An EC2 Fleet contains the configuration information to launch a fleet - or group - of instances. in a single API call, a fleet can launch multiple instance type across multiple AZ, using the On-Demand instance, Reserved Instance, and Spot Instance purchasing options together. 
+- Define separate On-Demand and Spot capacity targets and the maximum amount you're willing to pay per hour.
+- Specify the instance types that work best for your applications.
+
+###### What is vertical scaling and horizontal scaling. Explain with use case you have seen?
+- Implement Vertical Scaling if feel that our application requires more CPU and RAM. (multi processing, more features application)
+- Horizontal Scaling is more about handling the traffic.
+
+###### Cloud you explain how you would block an IAM user form accessing a specific S3 bucket?
+- Using s3 bucket policy. ARN-IAM -> blocked
+
+###### Why do we have 3 different kind of IAM policy types? (Managed, Customer Managed and Inline Policy)
+- Managed policy - AWS created and maintained policy.
+- Customer Managed - Customer created and managed policy
+- Inline policy - Created and attached directly to IAM User, Group and Role
+
+###### What is ingress and egress? Where are these terms mostly associated?
+- Ingress -> Incoming traffic
+- Egress -> Outgoing traffic
+
+###### Auto Scaling group for a project is having issues with getting/provisioning new nodes. It's using complete spot instances. What could be the issue?
+###### How is your K8S setup done on AWS?
+- using kops. 
+###### What are the load balancers in AWS. Briefly explain which one you have used and uses of others.
+- Classic LB: Round robin traffic routing
+- ALB: path based routing multiple ASG balancing.
+- Network LB: streaming service. Use network layer. (TCP protocol)
+- Gateway LB: Target groups support the Generic Networking Virtualization. Runs within one AZ
+
+###### What is a marketplace AMI?
+AWS marketplace is a place where I can find external software or OS that I can use without needing to sign a specific contract with organization. 
+
+###### What is a lag in read replica in RDS?
+
+#### Terraform
+###### When using terraform to create a RDS, how to save the DB username and password securely?
+- We should never commit these information in github repo
+- USing vault integration or KMS
+
+###### What is remote-exec in terraform and when will you use it?
+###### How to validate the variable during terraform plan time? Example you take a variable called AMI. We need to make sure its of a proper format.
+###### What does terraform state lock really mean? Do we have a practical use of it?
+- If supported by your backend, terraform will lock your state for all operations that could write state.
+- this prevents others form acquiring the lock and potentially corrupting your state.
+- State locking happens automatically on all operations that cloud write state.
+- You wont see any message that it is happening. If state locking fails, terraform will not continue.
+- You can disable state locking for most commands with the -lock flag but it is not recommend.
+- If acquiring the lock is taking longer than expected, terraform will output a status message.
+- If terraform doesn't output a message, state locking is still occurring if your backend supports it.
