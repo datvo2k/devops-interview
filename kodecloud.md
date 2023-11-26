@@ -76,6 +76,7 @@ A sidecar container runs parallel to the main application container. The reason 
 Remove certain complexities when we build application.   
 
 ###### How does the K8S scheduler quickly assign worker nodes for the pod? Explain the internal working of K8S's scheduler.
+###### You have 10 nodes with 500gb of disk attached to each node. Let us say the node disk space reached 85% usage, then the pod we have deployed should get evicted and re-deployed on a node with better disk health. Explain if this can even be done?
 
 #### AWS
 ###### What is instance fleet in AWS?
@@ -128,3 +129,20 @@ AWS marketplace is a place where I can find external software or OS that I can u
 - You can disable state locking for most commands with the -lock flag but it is not recommend.
 - If acquiring the lock is taking longer than expected, terraform will output a status message.
 - If terraform doesn't output a message, state locking is still occurring if your backend supports it.
+
+#### Prometheus
+###### Explain difference way in which prometheus can get metrics?
+- Pull based approach -> application metrics endpoint
+- Prometheus saved data after scrape on local. 
+
+###### Your development team needs your help to monitor the API endpoint. Which HTTP response would you monitor and when will you trigger the alert?
+- Any endpoint get call then you will get different response (check HTTP response code)
+- If HTTP response code is 400 or 500 range then we can trigger the alert.
+
+###### What are some ways in which you have setup alerting?
+- Prometheus and Alertmanager trigger through messages.
+
+###### Please explain how you create your dashboard for monitoring services in your current project?
+- Present the metrics
+- K8S -> Grafana
+- AWS project -> cloudwatch
