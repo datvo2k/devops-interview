@@ -146,3 +146,55 @@ AWS marketplace is a place where I can find external software or OS that I can u
 - Present the metrics
 - K8S -> Grafana
 - AWS project -> cloudwatch
+
+#### Helm
+###### Do you using helm? Which version do you use currently and do yo usee benefit of using helm?
+- Helm is basically packaging all your k8s file into a single chart format which help in:   
+[x] Deployment   
+[x] Rollback   
+[x] upgrade   
+[x] Prod, Staging, Dev setup
+
+###### Why use Helm in k8s?
+- Helm Chart help you define, install, and upgrade even the most complex K8S application.
+- It becomes complex when you have a lot of yaml to handle (deployment, backup, service, serviceaccount etc)
+- Charts are easy to create, version, share, and publish
+
+###### Which helm repository do you use today to store/access repository?
+
+#### CI/CD
+###### Can we have a jenkins agent which is a docker container and run our test inside this docker container?
+###### Have you use Jenkins in multi node setup? if yes, could you explain how to add a new slave/followed to master?
+###### What is a blue-green deployment?
+
+#### Python
+###### Explain which python module will you use to make a simple API testing code. The code should jest check if a API checkpoint is working or not
+```
+import requests
+status_code = requests.get(website).status_code
+```
+###### Explain in simple terms what is a package python?
+- python package -> module -> function
+
+###### We have a on-premises linux server which needs some monitoring enabled. Being a devops enginner only you have access to this server. How would you setup a basic monitoring script on this on premises server?
+```
+import psutil
+
+# CPU time
+print(psutil.cpu_times())
+
+# RAM
+print(psutil.virtual_memory())
+```
+
+###### Which build tool are you aware of and what are the build tools used in your project?
+
+#### Devops
+###### How do you handle incidents in your team? What DevOps best practices you have implemented for the same?
+- Monitoring (cloudwatch, prometheus, ...)
+- Alerting(SNS, alertmanager, ...)
+- Collecting metric in application, write alerting rules
+
+###### What do you think is the future trajectory towards your journey of being Devops engineer?
+###### Tell me about yourself and what are you day to dat task being a DevOps engineer?
+###### What is the difference between webserver and application server?
